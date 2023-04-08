@@ -20,7 +20,7 @@ public class ArtiklService {
 		return repo.findAll();
 	}
 	
-	public Optional<Artikl> getById(long id){
+	public Optional<Artikl> findById(long id){
 		return repo.findById(id);
 	}
 	
@@ -34,7 +34,7 @@ public class ArtiklService {
 	}
 	
 	public boolean existsById(long id) {
-		return getById(id).isPresent();
+		return findById(id).isPresent();
 	}
 	
 	public void deleteById(long id) {

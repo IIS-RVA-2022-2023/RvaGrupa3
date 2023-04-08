@@ -55,8 +55,8 @@ public class PorudzbinaController {
 
 	@GetMapping("/porudzbina/dobavljac/{id}")
 	public ResponseEntity<?> getPorudzbineByDobavljac(@PathVariable long id) {
-		if (!service.findPorudzbinaByDobavljac(dobavljacService.getById(id).get()).get().isEmpty()) {
-			return ResponseEntity.ok(service.findPorudzbinaByDobavljac(dobavljacService.getById(id).get()).get());
+		if (!service.findPorudzbinaByDobavljac(dobavljacService.findById(id).get()).get().isEmpty()) {
+			return ResponseEntity.ok(service.findPorudzbinaByDobavljac(dobavljacService.findById(id).get()).get());
 		} else {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND)
 					.body("Resources with requested value of foreign key dobavljac:" + id + "have not been found");
@@ -93,6 +93,7 @@ public class PorudzbinaController {
 	@PutMapping("porudzbina/{id}")
 	public ResponseEntity<?> updatePorudzbina(@RequestBody Porudzbina porudzbina, @PathVariable long id){
 		if(service.existsById(id)) {
+			porudzbina.setId(id);
 			return ResponseEntity.ok(service.addPorudzbina(porudzbina));
 		}else {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND)

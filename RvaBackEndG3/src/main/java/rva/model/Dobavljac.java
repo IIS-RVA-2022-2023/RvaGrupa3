@@ -3,6 +3,7 @@ package rva.model;
 import java.io.Serializable;
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -25,7 +26,7 @@ public class Dobavljac implements Serializable {
 	private String adresa;
 	private String kontakt;
 	
-	@OneToMany(mappedBy = "dobavljac")
+	@OneToMany(mappedBy = "dobavljac", cascade = CascadeType.REMOVE)
 	private List<Porudzbina> porudzbine;
 
 	public Dobavljac() {

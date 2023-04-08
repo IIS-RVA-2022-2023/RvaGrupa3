@@ -35,7 +35,7 @@ public class DobavljacService {
 	/*
 	 * Optional je poseban wrapper tip podatka kreiran u Java verziji 8
 	 */
-	public Optional<Dobavljac> getById(long id){
+	public Optional<Dobavljac> findById(long id){
 		return repo.findById(id);
 	}
 	
@@ -49,12 +49,12 @@ public class DobavljacService {
 		return dobavljaci;
 	}
 	
-	public Dobavljac addArtikl(Dobavljac dobavljac) {
+	public Dobavljac addDobavljac(Dobavljac dobavljac) {
 		return repo.save(dobavljac);
 	}
 	
 	public boolean existsById(long id) {
-		return getById(id).isPresent();
+		return findById(id).isPresent();
 	}
 	
 	public void deleteById(long id) {
