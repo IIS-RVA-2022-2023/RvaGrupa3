@@ -26,6 +26,7 @@ import { MatInputModule} from '@angular/material/input';
 import {FormsModule} from '@angular/forms';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatDialogModule} from '@angular/material/dialog';
+import { DobavljacDialogComponent } from './components/dialogs/dobavljac-dialog/dobavljac-dialog.component';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     HomeComponent,
     AboutComponent,
     AuthorComponent,
-    ArtiklDialogComponent
+    ArtiklDialogComponent,
+    DobavljacDialogComponent
   ],
   imports: [
     BrowserModule,
