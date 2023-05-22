@@ -1,5 +1,4 @@
-import { Dobavljac } from "./dobavljac";
-
+import { Dobavljac } from './dobavljac';
 export class Porudzbina{
     id!:number;
     datum!:Date;

@@ -1,8 +1,8 @@
+import { Dobavljac } from './../../../models/dobavljac';
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { Subscription } from 'rxjs';
-import { Dobavljac } from 'src/app/models/dobavljac';
 import { Porudzbina } from 'src/app/models/porudzbina';
 import { PorudzbinaService } from 'src/app/services/porudzbina.service';
 import { PorudzbinaDialogComponent } from '../../dialogs/porudzbina-dialog/porudzbina-dialog.component';
@@ -31,12 +31,13 @@ export class PorudzbinaComponent {
   }
 
   public loadData(){
-    this.subscription = this.porudzbinaService.getAllPorudzbina().subscribe(
-      data => {this.dataSource = new MatTableDataSource(data);}),
+    this.subscription = this.porudzbinaService.getAllPorudzbinas().subscribe(
+      data => {this.dataSource = new MatTableDataSource(data);
+              console.log(data)}),
       (error:Error) => {console.log(error.name + ' ' + error.message);}
   }
 
-  public openDialog(flag:number, id?:number, datum?:Date, isporuceno?:Date, iznos?:number, placeno?:boolean,dobavljac?:Dobavljac):void{
+  public openDialog(flag:number, id?:number, datum?:Date, isporuceno?:Date, iznos?:number, placeno?:boolean, dobavljac?:Dobavljac ):void{
     const dialogRef = this.dialog.open(PorudzbinaDialogComponent, {data:{id,datum,isporuceno,iznos,placeno,dobavljac}});
     dialogRef.componentInstance.flag = flag;
     dialogRef.afterClosed().subscribe(

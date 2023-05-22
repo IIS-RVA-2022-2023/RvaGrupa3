@@ -9,14 +9,14 @@
         <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
         <mat-cell *matCellDef="let row">{{ row.id }}</mat-cell>
       </ng-container>
-        <!--Datum kreiranja-->
+        <!--Datum Kreiranja-->
       <ng-container matColumnDef="datum">
         <mat-header-cell *matHeaderCellDef>Datum kreiranja</mat-header-cell>
-        <mat-cell *matCellDef="let row">{{ row.datum | date:'dd.MM.yyyy.'}}</mat-cell>
+        <mat-cell *matCellDef="let row">{{ row.datum | date:'dd.MM.yyyy.' }}</mat-cell>
       </ng-container>
-      <!-- Datum isporuke -->
+      <!--Datum Kreiranja-->
       <ng-container matColumnDef="isporuceno">
-        <mat-header-cell *matHeaderCellDef>Datum isporuke</mat-header-cell>
+        <mat-header-cell *matHeaderCellDef>Datum Isporuke</mat-header-cell>
         <mat-cell *matCellDef="let row">{{ row.isporuceno | date:'dd.MM.yyyy.' }}</mat-cell>
       </ng-container>
       <!-- Iznos -->
@@ -27,7 +27,7 @@
       <!-- Placeno -->
       <ng-container matColumnDef="placeno">
         <mat-header-cell *matHeaderCellDef>Placeno</mat-header-cell>
-        <mat-cell *matCellDef="let row" [style.color]="row.placeno ? 'green':'red'">{{ row.placeno ? 'Da':'Ne'}}</mat-cell>
+        <mat-cell *matCellDef="let row">{{ row.placeno }}</mat-cell>
       </ng-container>
       <!-- Dobavljac -->
       <ng-container matColumnDef="dobavljac">

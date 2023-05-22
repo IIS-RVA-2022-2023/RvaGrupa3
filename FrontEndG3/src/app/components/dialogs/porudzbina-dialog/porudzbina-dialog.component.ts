@@ -1,9 +1,9 @@
+import { DobavljacService } from './../../../services/dobavljac.service';
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Dobavljac } from 'src/app/models/dobavljac';
 import { Porudzbina } from 'src/app/models/porudzbina';
-import { DobavljacService } from 'src/app/services/dobavljac.service';
 import { PorudzbinaService } from 'src/app/services/porudzbina.service';
 
 @Component({
@@ -14,27 +14,27 @@ import { PorudzbinaService } from 'src/app/services/porudzbina.service';
 export class PorudzbinaDialogComponent implements OnInit {
 
   flag!:number;
-  dobavljaci!:Dobavljac[];
+  dobavljaci!: Dobavljac[];
 
   constructor(public snackBar:MatSnackBar,
               public dialogRef: MatDialogRef<Porudzbina>,
               @Inject(MAT_DIALOG_DATA) public data: Porudzbina,
               public porudzbinaService:PorudzbinaService,
               public dobavljacService:DobavljacService){}
-  
+
   ngOnInit(): void {
     this.dobavljacService.getAllDobavljacs().subscribe(
       data => {
         this.dobavljaci = data;
       }
-    );
+    )
   }
 
 
 public add():void{
   this.porudzbinaService.addPorudzbina(this.data).subscribe(
     () => {
-      this.snackBar.open('Porudzbina je uspesno dodata!', 'Ok', {duration:4500});
+      this.snackBar.open('Porudzbina sa ID: ' + this.data.id + ' je uspesno dodata!', 'Ok', {duration:4500});
     }
   ),
   (error:Error) => {

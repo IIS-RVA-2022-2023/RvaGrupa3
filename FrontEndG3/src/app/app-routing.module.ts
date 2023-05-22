@@ -1,3 +1,4 @@
+import { StavkaPorudzbineComponent } from './components/main/stavka-porudzbine/stavka-porudzbine.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ArtiklComponent } from './components/main/artikl/artikl.component';
@@ -14,6 +15,7 @@ const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'about', component: AboutComponent},
   {path: 'author', component: AuthorComponent},
+  {path: 'stavka', component: StavkaPorudzbineComponent},
   {path: '', redirectTo:'/home', pathMatch: 'full'}
 ];
 
