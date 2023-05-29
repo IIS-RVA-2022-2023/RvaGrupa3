@@ -18,6 +18,8 @@ export class PorudzbinaComponent {
   displayedColumns = ['id','datum','isporuceno','iznos','placeno','dobavljac','actions'];
   subscription!:Subscription;
 
+  parentSelectedPorudzbina!:Porudzbina;
+
   constructor(private porudzbinaService: PorudzbinaService,
               public dialog: MatDialog){
 
@@ -47,5 +49,10 @@ export class PorudzbinaComponent {
         }
       }
     )
+  }
+
+  public selectRow(row:Porudzbina){
+    this.parentSelectedPorudzbina = row;
+    console.log(row);
   }
 }

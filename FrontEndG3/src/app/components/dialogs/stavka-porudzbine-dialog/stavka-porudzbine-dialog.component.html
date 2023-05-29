@@ -29,7 +29,7 @@
      </div>
 
       <div class="form">
-          <mat-select class="form-field" placeholder="Artikl" name="Artikl" [disabled]="flag==3" [(ngModel)]="data.artikl" required>
+          <mat-select class="form-field" [compareWith]="compare" placeholder="Artikl" name="Artikl" [disabled]="flag==3" [(ngModel)]="data.artikl" required>
               <mat-option *ngFor="let artikl of artikli" [value]="artikl">
                   {{artikl.naziv}}
               </mat-option>

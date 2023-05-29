@@ -71,4 +71,8 @@ public cancel():void{
   this.dialogRef.close();
   this.snackBar.open('Odustali ste od izmena', 'Ok', {duration:2500})
 }
+
+public compare(a:any, b:any){
+  return a.id == b.id;
+}
 }
